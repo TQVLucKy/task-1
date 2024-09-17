@@ -10,7 +10,7 @@
 
 <body>
     <b>Contact Us</b>
-    <form method="GET" action="">
+    <form method="POST" action="">
         <table>
             <tr>
                 <td colspan="3">
@@ -70,14 +70,27 @@
         </table>
     </form>
     <?php
-    if ($_SERVER["REQUEST_METHOD"] === "GET" && !empty($_GET)) {
-        echo "Your Name:" . htmlspecialchars($_GET["name"]) . "<br>";
-        echo "Your Phone Number:" . htmlspecialchars($_GET['number']) . "<br>";
-        echo "Your Email:" . htmlspecialchars($_GET['email']) . "<br>";
-        echo "Major:" . htmlspecialchars($_GET["major"]) . "<br>";
-        echo "Location:" . htmlspecialchars($_GET["location"]) . "<br>";
-        if ($_GET["checkbox"]) {
-            foreach ($_GET["checkbox"] as $selected)
+    // if ($_SERVER["REQUEST_METHOD"] === "GET" && !empty($_GET)) {
+    //     echo "Your Name:" . htmlspecialchars($_GET["name"]) . "<br>";
+    //     echo "Your Phone Number:" . htmlspecialchars($_GET['number']) . "<br>";
+    //     echo "Your Email:" . htmlspecialchars($_GET['email']) . "<br>";
+    //     echo "Major:" . htmlspecialchars($_GET["major"]) . "<br>";
+    //     echo "Location:" . htmlspecialchars($_GET["location"]) . "<br>";
+    //     if ($_GET["checkbox"]) {
+    //         foreach ($_GET["checkbox"] as $selected)
+    //             echo "Register to: " . htmlspecialchars($selected) . "<br>";
+    //     }
+    //     else echo "No register .";
+    // }
+
+    if ($_SERVER["REQUEST_METHOD"] === "POST" && !empty($_POST)) {
+        echo "Your Name:" . htmlspecialchars($_POST["name"]) . "<br>";
+        echo "Your Phone Number:" . htmlspecialchars($_POST['number']) . "<br>";
+        echo "Your Email:" . htmlspecialchars($_POST['email']) . "<br>";
+        echo "Major:" . htmlspecialchars($_POST["major"]) . "<br>";
+        echo "Location:" . htmlspecialchars($_POST["location"]) . "<br>";
+        if ($_POST["checkbox"]) {
+            foreach ($_POST["checkbox"] as $selected)
                 echo "Register to: " . htmlspecialchars($selected) . "<br>";
         }
         else echo "No register .";
