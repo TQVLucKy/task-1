@@ -1,0 +1,232 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    margin: 0;
+    display: flex;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 100vw;
+}
+
+.header {
+    padding: 20px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+
+    &-left,
+    &-right {
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+
+            li {
+                // position: relative;
+                position: relative;
+                float: left;
+                margin: 0 20px;
+
+                a {
+                    text-decoration: none;
+                    font-size: 1em;
+                    font-weight: bold;
+                    color: rgb(0, 0, 0, 0.7);
+                    display: inline-block;
+                    padding: 5px 0;
+
+                }
+            }
+        }
+    }
+
+    &-left {
+        .header-list-left {
+            position: relative;
+
+            .header-list-items {
+                &::after {
+                    content: "";
+                    position: absolute;
+                    width: 100%;
+                    height: 1px;
+                    bottom: 0;
+                    left: 0;
+                    background-color: rgb(0, 0, 0, 0.7);
+                    transform: scaleX(0);
+                    transform-origin: bottom left;
+                    transition: transform 0.25s ease-out;
+                }
+
+                &:hover::after {
+                    transform: scaleX(1);
+                    transform-origin: bottom right;
+                }
+            }
+
+            &:hover .dropdown-content {
+                display: flex;
+            }
+        }
+
+    }
+
+    &-center {
+        img {
+            display: flex;
+            float: left;
+            // max-width: 100%;
+        }
+    }
+}
+
+.dropdown-content {
+    display: none;
+    position: fixed;
+    top: 60px;
+    left: 0;
+    width: 100vw;
+    padding-bottom: 30px;
+    max-width: width;
+    z-index: 1;
+    box-sizing: border-box;
+    background-color: white;
+
+    // padding: 12px 16px;
+    .megamenu-list {
+        padding-top: 40px;
+        display: flex;
+        max-width: 888px;
+        margin-left: 65px;
+        gap: 80px;
+
+        // padding: 30px;
+        .megamenu-item {
+            width: 150px;
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            margin-right: 30px;
+
+            .megamenu-item-title {
+                margin: 0 0 20px 0;
+                font-weight: bold;
+                font-size: 1.2em;
+            }
+
+            .linklist {
+                display: flex;
+                width: 250px;
+                flex-direction: column;
+
+                li {
+                    margin: 0;
+                }
+            }
+        }
+
+        .megamenu-img {
+            margin-left: auto;
+            display: flex;
+            flex-direction: column;
+
+            img {
+                max-height: 230px;
+            }
+
+            b {
+                margin: 10px;
+                text-align: center;
+            }
+        }
+    }
+}
+
+.slideshow {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+    background-image: url("https://academybrand.com/cdn/shop/files/04_New_Arrivals_Bundles_Mid_Season_Sale.jpg?v=1725523187&width=1800");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    &-content {
+
+        color: white;
+
+        p {
+            font-weight: bold;
+            font-size: 1.05em;
+        }
+
+        h2 {
+            font-size: 3em;
+        }
+    }
+
+    &-button {
+        margin: 30px 0;
+
+        .buttongroup-item {
+            position: relative;
+            text-decoration: none;
+            margin: 5px;
+            padding: 15px 40px;
+            width: 175px;
+            height: 40px;
+            font-size: 0.8em;
+            letter-spacing: 1px;
+            box-shadow: 1px 1px 1px white, -1px -1px 1px white;
+            background-color: white;
+            border: 2px solid white;
+            transition: background-color 0.3s ease;
+            color: black;
+            &::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: white;
+                color: black;
+                transition: transform 0.5s ease-in;
+                transform: scaleX(0);
+                transform-origin: left;
+                z-index: 1;
+                opacity: 0;
+            }
+            &:hover::before {
+                transform: scaleX(1);
+            }
+
+            &:hover {
+                background-color: transparent;
+                color: white;
+            }
+        }
+    }
+}
+
+.slideshow-image {
+    margin: 30px 0;
+    width: 100%;
+    height: 375px;
+    background-image: url('https://academybrand.com/cdn/shop/files/04_New_Arrivals_Bundles_Mid_Season_Sale7.jpg?v=1725523472&width=1800');
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
