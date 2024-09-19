@@ -8,6 +8,7 @@
 body {
     margin: 0;
     display: flex;
+    flex-direction: column;
     overflow-x: hidden;
 }
 
@@ -16,11 +17,15 @@ body {
 }
 
 .header {
+    position: sticky;
+    top: 0;
     padding: 20px 0;
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100vw;
+    background-color: white;
+    z-index: 10;
 
     &-left,
     &-right {
@@ -175,58 +180,412 @@ body {
             font-size: 3em;
         }
     }
+}
 
-    &-button {
+.main {
+    height: 3000px;
+
+    .slideshow-image {
         margin: 30px 0;
+        width: 100%;
+        height: 300px;
+        background-image: url('https://academybrand.com/cdn/shop/files/04_New_Arrivals_Bundles_Mid_Season_Sale7.jpg?v=1725523472&width=1800');
+        background-size: cover;
+        background-position: top;
+        background-repeat: no-repeat;
+        overflow: hidden;
+    }
 
-        .buttongroup-item {
-            position: relative;
-            text-decoration: none;
-            margin: 5px;
-            padding: 15px 40px;
-            width: 175px;
-            height: 40px;
-            font-size: 0.8em;
-            letter-spacing: 1px;
-            box-shadow: 1px 1px 1px white, -1px -1px 1px white;
-            background-color: white;
-            border: 2px solid white;
-            transition: background-color 0.3s ease;
-            color: black;
-            &::before {
-                content: "";
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                background-color: white;
-                color: black;
-                transition: transform 0.5s ease-in;
-                transform: scaleX(0);
-                transform-origin: left;
-                z-index: 1;
-                opacity: 0;
+    .shopify-section {
+        height: auto;
+
+        // margin: 80px 0;
+        .tiles {
+            .tiles-container {
+                display: flex;
+                gap: 20px;
+                align-items: stretch;
+
+                .tile-item {
+                    flex: 1;
+                    min-height: 100px;
+
+                    // width: 100%;
+                    // height: 100%;
+                    img {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                    }
+                }
             }
-            &:hover::before {
-                transform: scaleX(1);
+        }
+
+        .section-header {
+            padding: 50px 0;
+
+            .container {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+                .section-header-title {
+                    margin: 30px 0;
+                }
+
+                .section-header-tablist {
+                    display: flex;
+                    gap: 30px;
+                    position: relative;
+
+                    .tablist-button {
+                        border: none;
+                        background-color: inherit;
+                        font-weight: bold;
+                        cursor: pointer;
+                        font-size: 1em;
+                        position: relative;
+
+                        &::after {
+                            content: "";
+                            position: absolute;
+                            bottom: -2px;
+                            left: 0;
+                            width: 100%;
+                            height: 2px;
+                            background-color: black;
+                            transition: width;
+                            transform: scaleX(0);
+                            transform-origin: bottom left;
+                            transition: transform 0.25s ease-out;
+                        }
+
+                        &.active::after {
+                            transform: scaleX(1);
+                            transform-origin: bottom right;
+                        }
+                    }
+
+                    .tablist-button:first-child.active::after {
+                        transform: scaleX(1);
+                        transform-origin: bottom right;
+                    }
+
+                }
+            }
+        }
+
+        .tabpanel {
+            height: 850px;
+            display: flex;
+            flex-direction: column;
+
+            .productlistwrapper {
+                height: auto;
+
+                .productlist {
+                    height: auto;
+                    background-color: blue;
+                    display: flex;
+                    flex: 1;
+                    justify-content: center;
+                    text-align: center;
+                    padding: 0 10px;
+                    .product-items {
+                        display: flex;
+                        // flex: 1;
+                        gap: 40px;
+                        justify-content:space-between;
+                        width: 100%;
+                        .product-item {
+                            position: relative;
+
+                            .wishlist-btn-icon {
+                                position: absolute;
+                                top: 2%;
+                                left: 5%;
+
+                                svg {
+                                    width: 15px;
+                                    height: auto;
+                                }
+                            }
+
+                            .product-item-wrapper {
+                                .product-item-imagewrapper {
+                                    img {
+                                        width: 100%;
+                                        height: auto;
+                                        // transition: transform 0.3s ease;
+                                        // &:hover {
+                                        //     transform: scale(1.1);
+                                        // }
+                                    }
+
+                                }
+
+                                // .product-item-mobileaddtocart{
+                                //     position: absolute;
+                                //     top: 50%;
+                                //     left: 50%;
+                                // }
+                                .product-item-hoverwrapper {
+                                    background-color: #dddddd;
+                                    display: flex;
+                                    justify-content: center;
+                                    flex-direction: column;
+                                    color: #6a6a6a;
+                                    .product-item-selecttionwrapper {
+                                        display: flex;
+                                        justify-content: center;
+                                        gap: 10px;
+                                        .button-selectionwrapper {
+                                            background-color: #dddddd;
+                                            color: #6a6a6a;
+                                            border: #dddddd;
+                                            &:hover{
+                                                color: black;
+                                                font-weight: bold;
+                                                // text-shadow: 1px 1px 1px black;
+                                            }
+                                        }
+                                    }
+
+                                    .product-item-addtocart {
+                                        border: none;
+                                        color: #6a6a6a;
+                                        background-color: inherit;
+                                        &:hover{
+                                            color: black;
+                                            font-weight: bold;
+                                            // text-shadow: 1px 1px 1px black;
+                                            
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .product-button-prev,.product-button-next{
+                        background-color: red;
+                        border: none;
+                        margin: auto 20px;
+                        height: 50px;
+                        width: 50px;
+                        border-radius: 50%;
+                        cursor: pointer;
+                        display: inline-flex;
+                        align-items: center;
+                        justify-content: center;
+                        // padding: 20px;   
+                        svg{
+                            width: 60%;
+                            height: auto;
+                        }
+                    }
+                }
             }
 
-            &:hover {
-                background-color: transparent;
-                color: white;
+            .container {
+                display: flex;
+                justify-content: center;
+                padding: 30px 0;
+                .slideshow-button {
+                    .product-viewbutton{
+                        border: 1px solid black;
+                        background-color: black;
+                        color: white;
+                        &:hover{
+                            background-color: transparent;
+                            color: black;
+                        }
+                    }
+                }
             }
         }
     }
 }
 
-.slideshow-image {
-    margin: 30px 0;
-    width: 100%;
-    height: 375px;
-    background-image: url('https://academybrand.com/cdn/shop/files/04_New_Arrivals_Bundles_Mid_Season_Sale7.jpg?v=1725523472&width=1800');
-    background-size: 100% 100%;
-    background-position: center;
-    background-repeat: no-repeat;
+svg {
+    width: 30px;
+    height: 30px;
+}
 
+.slideshow-button {
+    margin: 30px 0;
+
+    .buttongroup-item {
+        position: relative;
+        text-decoration: none;
+        margin: 5px 5px 5px 0;
+        padding: 15px 40px;
+        width: 175px;
+        height: 40px;
+        font-size: 0.8em;
+        letter-spacing: 1px;
+        box-shadow: 1px 1px 1px white, -1px -1px 1px white;
+        background-color: white;
+        border: 2px solid white;
+        transition: background-color 0.5s ease;
+        color: black;
+
+        &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: white;
+            color: black;
+            transition: transform 0.5s ease-in;
+            transform: scaleX(0);
+            transform-origin: left;
+            z-index: 1;
+            opacity: 0;
+        }
+
+        &:hover::before {
+            transform: scaleX(1);
+        }
+
+        &:hover {
+            background-color: transparent;
+            color: white;
+        }
+    }
+}
+
+.footer {
+    width: 100vw;
+
+    .footer-contain {
+        background-color: #1c1b1b;
+        padding: 50px 100px 20px 50px;
+        color: white;
+        height: auto;
+
+        .footer-main {
+            display: flex;
+            justify-content: space-between;
+            width: 100vw;
+            padding: 50px 150px 20px 0;
+
+
+            ul {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+            }
+
+            &-left {
+                // padding-left: 30px;
+                display: flex;
+                gap: 50px;
+                width: 100%;
+
+                .linklist-container {
+                    display: flex;
+                    flex-direction: column;
+
+                    .linklist-title {
+                        margin: 0 0 30px 0;
+                        font-size: 0.8em;
+                    }
+
+                    ul {
+                        li {
+                            margin: 10px 0;
+
+                            a {
+                                text-decoration: none;
+                                color: white;
+                                color: inherit;
+                                font-size: 0.8em;
+                            }
+                        }
+                    }
+
+                }
+            }
+
+            &-right {
+                width: 35%;
+
+                .linklist-title {
+                    margin: 0 0 30px 0;
+                    font-size: 0.8em;
+                }
+
+                .footer-right-describe {
+                    text-decoration: none;
+                    color: inherit;
+                    font-size: 0.8em;
+                    word-break: break-word;
+                }
+
+                .slideshow-button {
+                    .buttongroup-item {
+                        padding: 5px 30px;
+                        font-weight: bold;
+                    }
+                }
+
+                .footer-social {
+                    display: flex;
+                    gap: 20px;
+
+                    li {
+                        a {
+                            display: inline-block;
+                            background-color: inherit;
+                            color: white;
+                            font-size: 25px;
+                        }
+                    }
+                }
+            }
+        }
+
+        .footer-under {
+            margin: 20px 0 0 0;
+
+            #currency-dropdown {
+                background-color: inherit;
+                border: none;
+                color: inherit;
+                font-size: 0.8em;
+                width: 70px;
+                color: white;
+
+                option {
+                    background-color: white;
+                    color: black;
+                }
+            }
+
+            .footer-copyright {
+                width: auto;
+                margin: 15px 0 0 0;
+
+                .footer-storename {
+                    text-decoration: none;
+                    color: inherit;
+                    font-size: 0.8em;
+                    margin: 0 40px;
+                }
+            }
+        }
+    }
+
+    .footer-paymentlist {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        padding: 10px 0;
+        background-color: #dddddd;
+    }
 }

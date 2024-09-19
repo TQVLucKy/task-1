@@ -8,6 +8,7 @@
 body {
   margin: 0;
   display: flex;
+  flex-direction: column;
   overflow-x: hidden;
 }
 
@@ -16,11 +17,15 @@ body {
 }
 
 .header {
+  position: sticky;
+  top: 0;
   padding: 20px 0;
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100vw;
+  background-color: white;
+  z-index: 10;
 }
 .header-left ul, .header-right ul {
   list-style: none;
@@ -141,13 +146,195 @@ body {
 .slideshow-content h2 {
   font-size: 3em;
 }
+
+.main {
+  height: 3000px;
+}
+.main .slideshow-image {
+  margin: 30px 0;
+  width: 100%;
+  height: 300px;
+  background-image: url("https://academybrand.com/cdn/shop/files/04_New_Arrivals_Bundles_Mid_Season_Sale7.jpg?v=1725523472&width=1800");
+  background-size: cover;
+  background-position: top;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+.main .shopify-section {
+  height: auto;
+}
+.main .shopify-section .tiles .tiles-container {
+  display: flex;
+  gap: 20px;
+  align-items: stretch;
+}
+.main .shopify-section .tiles .tiles-container .tile-item {
+  flex: 1;
+  min-height: 100px;
+}
+.main .shopify-section .tiles .tiles-container .tile-item img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.main .shopify-section .section-header {
+  padding: 50px 0;
+}
+.main .shopify-section .section-header .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.main .shopify-section .section-header .container .section-header-title {
+  margin: 30px 0;
+}
+.main .shopify-section .section-header .container .section-header-tablist {
+  display: flex;
+  gap: 30px;
+  position: relative;
+}
+.main .shopify-section .section-header .container .section-header-tablist .tablist-button {
+  border: none;
+  background-color: inherit;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 1em;
+  position: relative;
+}
+.main .shopify-section .section-header .container .section-header-tablist .tablist-button::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: black;
+  transition: width;
+  transform: scaleX(0);
+  transform-origin: bottom left;
+  transition: transform 0.25s ease-out;
+}
+.main .shopify-section .section-header .container .section-header-tablist .tablist-button.active::after {
+  transform: scaleX(1);
+  transform-origin: bottom right;
+}
+.main .shopify-section .section-header .container .section-header-tablist .tablist-button:first-child.active::after {
+  transform: scaleX(1);
+  transform-origin: bottom right;
+}
+.main .shopify-section .tabpanel {
+  height: 850px;
+  display: flex;
+  flex-direction: column;
+}
+.main .shopify-section .tabpanel .productlistwrapper {
+  height: auto;
+}
+.main .shopify-section .tabpanel .productlistwrapper .productlist {
+  height: auto;
+  background-color: blue;
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  text-align: center;
+  padding: 0 10px;
+}
+.main .shopify-section .tabpanel .productlistwrapper .productlist .product-items {
+  display: flex;
+  gap: 40px;
+  justify-content: space-between;
+  width: 100%;
+}
+.main .shopify-section .tabpanel .productlistwrapper .productlist .product-items .product-item {
+  position: relative;
+}
+.main .shopify-section .tabpanel .productlistwrapper .productlist .product-items .product-item .wishlist-btn-icon {
+  position: absolute;
+  top: 2%;
+  left: 5%;
+}
+.main .shopify-section .tabpanel .productlistwrapper .productlist .product-items .product-item .wishlist-btn-icon svg {
+  width: 15px;
+  height: auto;
+}
+.main .shopify-section .tabpanel .productlistwrapper .productlist .product-items .product-item .product-item-wrapper .product-item-imagewrapper img {
+  width: 100%;
+  height: auto;
+}
+.main .shopify-section .tabpanel .productlistwrapper .productlist .product-items .product-item .product-item-wrapper .product-item-hoverwrapper {
+  background-color: #dddddd;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  color: #6a6a6a;
+}
+.main .shopify-section .tabpanel .productlistwrapper .productlist .product-items .product-item .product-item-wrapper .product-item-hoverwrapper .product-item-selecttionwrapper {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+.main .shopify-section .tabpanel .productlistwrapper .productlist .product-items .product-item .product-item-wrapper .product-item-hoverwrapper .product-item-selecttionwrapper .button-selectionwrapper {
+  background-color: #dddddd;
+  color: #6a6a6a;
+  border: #dddddd;
+}
+.main .shopify-section .tabpanel .productlistwrapper .productlist .product-items .product-item .product-item-wrapper .product-item-hoverwrapper .product-item-selecttionwrapper .button-selectionwrapper:hover {
+  color: black;
+  font-weight: bold;
+}
+.main .shopify-section .tabpanel .productlistwrapper .productlist .product-items .product-item .product-item-wrapper .product-item-hoverwrapper .product-item-addtocart {
+  border: none;
+  color: #6a6a6a;
+  background-color: inherit;
+}
+.main .shopify-section .tabpanel .productlistwrapper .productlist .product-items .product-item .product-item-wrapper .product-item-hoverwrapper .product-item-addtocart:hover {
+  color: black;
+  font-weight: bold;
+}
+.main .shopify-section .tabpanel .productlistwrapper .productlist .product-button-prev, .main .shopify-section .tabpanel .productlistwrapper .productlist .product-button-next {
+  background-color: red;
+  border: none;
+  margin: auto 20px;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.main .shopify-section .tabpanel .productlistwrapper .productlist .product-button-prev svg, .main .shopify-section .tabpanel .productlistwrapper .productlist .product-button-next svg {
+  width: 60%;
+  height: auto;
+}
+.main .shopify-section .tabpanel .container {
+  display: flex;
+  justify-content: center;
+  padding: 30px 0;
+}
+.main .shopify-section .tabpanel .container .slideshow-button .product-viewbutton {
+  border: 1px solid black;
+  background-color: black;
+  color: white;
+}
+.main .shopify-section .tabpanel .container .slideshow-button .product-viewbutton:hover {
+  background-color: transparent;
+  color: black;
+}
+
+svg {
+  width: 30px;
+  height: 30px;
+}
+
 .slideshow-button {
   margin: 30px 0;
 }
 .slideshow-button .buttongroup-item {
   position: relative;
   text-decoration: none;
-  margin: 5px;
+  margin: 5px 5px 5px 0;
   padding: 15px 40px;
   width: 175px;
   height: 40px;
@@ -156,7 +343,7 @@ body {
   box-shadow: 1px 1px 1px white, -1px -1px 1px white;
   background-color: white;
   border: 2px solid white;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.5s ease;
   color: black;
 }
 .slideshow-button .buttongroup-item::before {
@@ -182,12 +369,107 @@ body {
   color: white;
 }
 
-.slideshow-image {
-  margin: 30px 0;
+.footer {
+  width: 100vw;
+}
+.footer .footer-contain {
+  background-color: #1c1b1b;
+  padding: 50px 100px 20px 50px;
+  color: white;
+  height: auto;
+}
+.footer .footer-contain .footer-main {
+  display: flex;
+  justify-content: space-between;
+  width: 100vw;
+  padding: 50px 150px 20px 0;
+}
+.footer .footer-contain .footer-main ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.footer .footer-contain .footer-main-left {
+  display: flex;
+  gap: 50px;
   width: 100%;
-  height: 375px;
-  background-image: url("https://academybrand.com/cdn/shop/files/04_New_Arrivals_Bundles_Mid_Season_Sale7.jpg?v=1725523472&width=1800");
-  background-size: 100% 100%;
-  background-position: center;
-  background-repeat: no-repeat;
+}
+.footer .footer-contain .footer-main-left .linklist-container {
+  display: flex;
+  flex-direction: column;
+}
+.footer .footer-contain .footer-main-left .linklist-container .linklist-title {
+  margin: 0 0 30px 0;
+  font-size: 0.8em;
+}
+.footer .footer-contain .footer-main-left .linklist-container ul li {
+  margin: 10px 0;
+}
+.footer .footer-contain .footer-main-left .linklist-container ul li a {
+  text-decoration: none;
+  color: white;
+  color: inherit;
+  font-size: 0.8em;
+}
+.footer .footer-contain .footer-main-right {
+  width: 35%;
+}
+.footer .footer-contain .footer-main-right .linklist-title {
+  margin: 0 0 30px 0;
+  font-size: 0.8em;
+}
+.footer .footer-contain .footer-main-right .footer-right-describe {
+  text-decoration: none;
+  color: inherit;
+  font-size: 0.8em;
+  word-break: break-word;
+}
+.footer .footer-contain .footer-main-right .slideshow-button .buttongroup-item {
+  padding: 5px 30px;
+  font-weight: bold;
+}
+.footer .footer-contain .footer-main-right .footer-social {
+  display: flex;
+  gap: 20px;
+}
+.footer .footer-contain .footer-main-right .footer-social li a {
+  display: inline-block;
+  background-color: inherit;
+  color: white;
+  font-size: 25px;
+}
+.footer .footer-contain .footer-under {
+  margin: 20px 0 0 0;
+}
+.footer .footer-contain .footer-under #currency-dropdown {
+  background-color: inherit;
+  border: none;
+  color: inherit;
+  font-size: 0.8em;
+  width: 70px;
+  color: white;
+}
+.footer .footer-contain .footer-under #currency-dropdown option {
+  background-color: white;
+  color: black;
+}
+.footer .footer-contain .footer-under .footer-copyright {
+  width: auto;
+  margin: 15px 0 0 0;
+}
+.footer .footer-contain .footer-under .footer-copyright .footer-storename {
+  text-decoration: none;
+  color: inherit;
+  font-size: 0.8em;
+  margin: 0 40px;
+}
+.footer .footer-paymentlist {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  padding: 10px 0;
+  background-color: #dddddd;
 }/*# sourceMappingURL=style.css.map */
