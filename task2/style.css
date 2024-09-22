@@ -71,62 +71,81 @@ a {
   transform: scaleX(1);
   transform-origin: bottom right;
 }
-.header-left .header-list-left:hover .dropdown-content {
-  display: flex;
+.header-left .header-list-left:hover .dropdown-list {
+  opacity: 1;
+  visibility: visible;
 }
 .header-center img {
   display: flex;
   float: left;
 }
 
-.dropdown-content {
-  display: none;
+.dropdown-list {
+  display: flex;
   position: fixed;
   top: 60px;
   left: 0;
   width: 100vw;
-  padding-bottom: 30px;
-  max-width: width;
+  min-height: 550px;
   z-index: 1;
+  visibility: hidden;
+  opacity: 0;
   box-sizing: border-box;
   background-color: white;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
 }
-.dropdown-content .megamenu-list {
+.dropdown-list .dropdown-content {
+  display: flex;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  justify-content: center;
+  width: 1536px;
+  height: 100%;
+}
+.dropdown-list .dropdown-content .megamenu-list {
   padding-top: 40px;
   display: flex;
-  max-width: 888px;
-  margin-left: 65px;
+  width: 100vw;
+  margin-left: 60px;
   gap: 80px;
 }
-.dropdown-content .megamenu-list .megamenu-item {
+.dropdown-list .dropdown-content .megamenu-list .megamenu-item {
   width: 150px;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
   margin-right: 30px;
+  position: relative;
 }
-.dropdown-content .megamenu-list .megamenu-item .megamenu-item-title {
+.dropdown-list .dropdown-content .megamenu-list .megamenu-item .megamenu-item-title {
   margin: 0 0 20px 0;
   font-weight: bold;
   font-size: 1.2em;
 }
-.dropdown-content .megamenu-list .megamenu-item .linklist {
+.dropdown-list .dropdown-content .megamenu-list .megamenu-item .linklist {
   display: flex;
   width: 250px;
   flex-direction: column;
 }
-.dropdown-content .megamenu-list .megamenu-item .linklist li {
+.dropdown-list .dropdown-content .megamenu-list .megamenu-item .linklist li {
   margin: 0;
 }
-.dropdown-content .megamenu-list .megamenu-img {
+.dropdown-list .dropdown-content .megamenu-list .megamenu-img {
   margin-left: auto;
+  display: inline-flex;
+  float: left;
+  gap: 30px;
+}
+.dropdown-list .dropdown-content .megamenu-list .megamenu-img .megamenu-img-content {
   display: flex;
   flex-direction: column;
 }
-.dropdown-content .megamenu-list .megamenu-img img {
+.dropdown-list .dropdown-content .megamenu-list .megamenu-img .megamenu-img-content img {
   max-height: 230px;
 }
-.dropdown-content .megamenu-list .megamenu-img b {
+.dropdown-list .dropdown-content .megamenu-list .megamenu-img .megamenu-img-content b {
   margin: 10px;
   text-align: center;
 }
@@ -235,7 +254,7 @@ a {
   flex-direction: column;
 }
 .main .shopify-section .tabpanel .productlistwrapper {
-  height: auto;
+  height: 100%;
 }
 .main .shopify-section .tabpanel .productlistwrapper .productlist {
   height: auto;
@@ -244,26 +263,29 @@ a {
   justify-content: center;
   text-align: center;
   padding: 0 10px;
-  max-height: 0;
+  height: 0;
   opacity: 0;
   overflow: hidden;
-  transform: translateY(20px);
-  transition: max-height 0.25s ease-out, opacity 0.25s ease-out, transform 0.25s ease-out;
-  overflow: hidden;
+  transform: translateY(10px);
+  transition: opacity 1s ease-out, transform 1s ease-out;
 }
 .main .shopify-section .tabpanel .productlistwrapper .productlist.show {
-  max-height: 500px;
+  height: auto;
   opacity: 1;
+  overflow: visible;
   transform: translateY(0);
 }
 .main .shopify-section .tabpanel .productlistwrapper .productlist.hidden {
-  display: none;
+  height: 0;
+  opacity: 0;
+  transform: translateY(50px);
 }
 .main .shopify-section .tabpanel .productlistwrapper .productlist .product-items {
   display: flex;
   gap: 40px;
   justify-content: space-between;
   width: 100%;
+  height: 100%;
 }
 .main .shopify-section .tabpanel .productlistwrapper .productlist .product-items .product-item {
   position: relative;
@@ -341,6 +363,7 @@ a {
 }
 .main .shopify-section .tabpanel .productlistwrapper .productlist .product-items .product-item .product-item-wrapper .product-item-info {
   text-align: left;
+  height: auto;
 }
 .main .shopify-section .tabpanel .productlistwrapper .productlist .product-items .product-item .product-item-wrapper .product-item-info .product-item-title {
   margin: 10px 0;
@@ -389,6 +412,7 @@ a {
   border: 1px solid black;
   background-color: black;
   color: white;
+  width: 200px;
 }
 .main .shopify-section .tabpanel .container .slideshow-button .product-viewbutton:hover {
   background-color: transparent;
@@ -453,58 +477,61 @@ svg {
   margin: 30px 0;
 }
 .slideshow-button .buttongroup-item {
-  position: relative;
-  text-decoration: none;
-  margin: 5px 5px 5px 0;
-  padding: 15px 40px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
   width: 175px;
-  height: 40px;
-  font-size: 0.8em;
-  letter-spacing: 1px;
-  box-shadow: 1px 1px 1px white, -1px -1px 1px white;
   background-color: white;
-  border: 2px solid white;
-  transition: background-color 0.5s ease;
+  padding: 15px 0px;
+  border: 1px solid white;
   color: black;
-  white-space: nowrap;
-  text-align: center;
+  position: relative;
+  overflow: hidden;
+  transition: color 0.25s ease-in-out, background-color 0.25s ease-in-out;
+  position: relative;
+  z-index: 2;
 }
 .slideshow-button .buttongroup-item::before {
   content: "";
   position: absolute;
   top: 0;
-  left: 0;
+  left: -100%;
   width: 100%;
   height: 100%;
   background-color: white;
-  color: black;
-  transition: transform 0.5s ease-in;
-  transform: scaleX(0);
-  transform-origin: left;
+  transition: left 0.4s ease-in-out;
   z-index: 1;
-  opacity: 0;
 }
 .slideshow-button .buttongroup-item:hover::before {
-  transform: scaleX(1);
+  left: 100%;
 }
 .slideshow-button .buttongroup-item:hover {
   background-color: transparent;
   color: white;
 }
+.slideshow-button .buttongroup-item:not(:hover) {
+  transition: color 0.25s ease-in-out 0.25s, background-color 0.25s ease-in-out 0.25s;
+}
 
 .footer {
   width: 100vw;
+  background-color: #1c1b1b;
+  display: flex;
+  justify-content: center;
 }
 .footer .footer-contain {
-  background-color: #1c1b1b;
   padding: 50px 100px 20px 50px;
   color: white;
   height: auto;
+  width: 1500px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }
 .footer .footer-contain .footer-main {
   display: flex;
-  justify-content: space-between;
-  width: 100vw;
+  justify-content: center;
+  width: inherit;
   padding: 50px 150px 20px 0;
 }
 .footer .footer-contain .footer-main ul {
@@ -586,7 +613,8 @@ svg {
   font-size: 0.8em;
   margin: 0 40px;
 }
-.footer .footer-paymentlist {
+
+.footer-paymentlist {
   list-style: none;
   padding: 0;
   margin: 0;
