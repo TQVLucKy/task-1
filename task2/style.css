@@ -286,7 +286,7 @@ ul {
 .dropdown-list {
   display: flex;
   position: fixed;
-  top: 60px;
+  top: 100px;
   left: 0;
   width: 100vw;
   min-height: 550px;
