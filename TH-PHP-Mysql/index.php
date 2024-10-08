@@ -1,22 +1,4 @@
-<?php
-require "connect.php";
 
-// if($_SERVER["REQUEST_METHOD"]==="POST"){
-//     if(isset($_POST["subcreproduct"]) &&$_POST["subcreproduct"]==="submit"){
-//         $id= htmlspecialchars($_POST['id']);
-//         $sku= htmlspecialchars($_POST['sku']);
-//         $name= htmlspecialchars($_POST['name']);
-//         $image= htmlspecialchars($_POST['image']);
-//         $categories= htmlspecialchars($_POST['categoryies']);
-//         date_default_timezone_get('Asia/HO_CHI_MINH');
-//         $create_date= date("d-m-Y");
-//         $sql= "INSERT INTO sanpham (id,sku,name,image,category_ids,create_date) VALUES (?,?,?,?,?)";
-//         $stmt = $conn->prepare($sql);
-//         $stmt->bind_param("??????",$id,$sku,$name,$image,$categories,$create_date);
-//         $stmt->execute();
-//     }
-// }
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -30,35 +12,25 @@ require "connect.php";
 </head>
 
 <body>
-    <?php
-    $sql = "select id,sku,name,image,create_date,category_ids
-        FROM sanpham";
-    $result = mysqli_query($conn, $sql);
-
-    ?>
     <div class="container">
         <h2>Product List</h2>
-        <!-- <button id="show-create-product">create product</button> -->
-        <!-- khi nhấn vào  tạo thì hiển thị form tạo sp -->
-        <!-- <div class="create-product">
-            <form action="" method="post">
-                <label>id:</label>
-                <input type="text" name="id" placeholder="input id"><br>
+        <button id="show-create-product">create product</button>
+
+        <div class="create-product" style="display: none;">
+            <form action="" id="product-form" method="post">
                 <label>sku:</label>
-                <input type="text" name="sku" placeholder="input sku"><br>
+                <input type="text" name="sku" placeholder="input sku" required><br>
                 <label>name:</label>
-                <input type="text" name="name" placeholder="input name"><br>
+                <input type="text" name="name" placeholder="input name" required><br>
                 <label>image:</label>
-                <input type="text" name="image" placeholder="select 1 image"><br>
+                <input type="file" name="image"  required><br>
                 <label>categories:</label>
-                <input type="text" name="categories[]" placeholder="input categories"><br>
+                <input type="text" name="categories" placeholder="input categories (ex: box,pen)" required><br>
                 <input type="submit" name="subcreproduct" value="submit">
             </form>
-        </div> -->
-        <!-- khi nhấn vào sửa hiển thị form sửa sản phẩm -->
+        </div>
 
-        <!-- khi nhấn vào xóa thì tiến hành xóa sản phẩm -->
-        <table class="table table-bordered table-hover table-striped">
+        <table id="data-table" class="table table-bordered table-hover table-striped">
             <thead>
                 <tr>
                     <th>id</th>
@@ -67,29 +39,20 @@ require "connect.php";
                     <th>image</th>
                     <th>create_date</th>
                     <th>categorys</th>
-                    <!-- <th>operation</th> -->
+                    <th>operation</th>
                 </tr>
             </thead>
             <tbody>
-                <?php
-                if ($result->num_rows > 0) {
-                    while ($x = $result->fetch_assoc()) {
-                        $categorys = str_replace(array('[', ']'), "", $x["category_ids"]);
-                        echo "<tr>";
-                        echo "<td>" . $x['id'] . "</td>";
-                        echo "<td>" . $x['sku'] . "</td>";
-                        echo "<td>" . $x['name'] . "</td>";
-                        echo "<td>" . $x['image'] . "</td>";
-                        echo "<td>" . $x['create_date'] . "</td>";
-                        echo "<td>" . $categorys . "</td>";
-                        // echo "<td><button>sua</button><br><button>xoa</button></td>";
-                        echo "</tr>";
-                    }
-                } ?>
+                <!-- add with ajax -->
             </tbody>
         </table>
-    </div>
+        <div id="pagination" style="display:flex;gap:10px;justify-content:center;">
+            <button id="prev-page">Previous</button>
+            <span id="page-numbers"></span>
+            <button id="next-page">Next</button>
 
+        </div>
+        <script src="mv.js"></script>
 </body>
 
 </html>
