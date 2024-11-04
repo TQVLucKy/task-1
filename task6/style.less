@@ -1,0 +1,442 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'AktivGroteskRegular', sans-serif !important;
+}
+
+@media screen and (min-width: 481px) {
+    form {
+        padding: 0 16px;
+    }
+}
+
+.Skin {
+    min-height: 100%;
+    margin: 0 auto;
+    height: auto;
+
+    .Container {
+        width: 100%;
+        padding-top: 80px;
+
+        @media (max-width: 480px) {
+            padding-top: 30px;
+        }
+    }
+
+
+    @media (min-width:770px) {
+        max-width: 95%;
+        width: 770px;
+    }
+
+    @media (min-width: 980px) {
+        display: table;
+        min-width: 770px;
+    }
+
+    input {
+        font-family: Poppins, Arial, sans-serif;
+        font-size: 18px;
+        color: rgb(117, 117, 117);
+    }
+}
+
+.LogoContainer {
+    padding: 15px 0 0 0;
+
+    .Logo {
+        padding: 12px;
+        background-color: #282829;
+        margin-bottom: 20px;
+        background-position: center center;
+        text-align: center;
+
+        img {
+            vertical-align: middle;
+            max-width: 100%;
+            max-height: 37px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        margin-bottom: 0;
+
+        img {
+            max-width: 50%;
+            max-height: 24px;
+        }
+    }
+}
+
+@media only screen and (max-width: 770px) {
+    .LogoContainer {
+        padding: 0px 15px;
+    }
+}
+
+#HeaderContainer {
+    margin: 0 auto;
+
+    #Header {
+        padding: 0;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .Skin #HeaderContainer {
+        padding: 15px 20px 0px;
+    }
+}
+
+.SkinContent {
+    margin: 0 auto;
+
+    .ValidationError {
+        display: none;
+        background: url(images/error.svg) no-repeat left top;
+        background-size: 20px 20px;
+        color: #d13a34;
+        margin: 0 auto;
+        padding: 5px 0 10px 0;
+        text-indent: 25px;
+        font-size: 14px;
+        margin-bottom: 20px;
+        font-weight: 500;
+    }
+
+    @media (max-width: 770px) {
+        .ValidationError {
+            margin-left: 20px;
+            margin-bottom: 0;
+        }
+    }
+}
+
+.Questions {
+    .Question {
+        display: none;
+        font-size: 100%;
+        white-space: normal;
+
+        &.active {
+            display: block;
+        }
+
+        .QuestionText {
+            color: rgb(117, 117, 117);
+            font-size: 24px;
+            padding: 0px 0px 24px;
+            width: 100%;
+            font-weight: 400;
+            line-height: 1.5em;
+
+            @media (max-width: 770px) {
+                padding: 20px;
+            }
+
+            a {
+                color: #282829;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .QuestionText {
+                font-size: 19.2px;
+            }
+        }
+
+        .QuestionBody {
+            padding-bottom: 20px;
+            padding-left: 0;
+            padding-right: 0;
+            margin: 0 auto;
+            color: #757575;
+            font-weight: 400;
+
+            @media (max-width: 480px) {
+                font-size: 14.4px;
+            }
+        }
+
+        @media (max-width: 770px) {
+            .QuestionBody.txarea {
+                padding-bottom: 20px;
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+        }
+    }
+}
+
+fieldset {
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+
+.ChoiceStructure {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+
+    .CollumnLabel {
+        color: rgb(117, 117, 117);
+        font-size: 18px;
+        font-weight: 400;
+        width: 50%;
+    }
+
+    .First {
+        text-align: left;
+    }
+
+    .Last {
+        text-align: right;
+    }
+
+    @media (max-width: 480px) {
+
+        .First,
+        .Last {
+            font-size: 14px;
+        }
+    }
+
+    @media only screen and (min-width: 481px) {
+        border-spacing: 10px;
+    }
+}
+
+
+
+
+.Selection {
+    cursor: pointer;
+
+    //radio
+    .custom-radio {
+        display: none;
+    }
+
+    .radio-icon {
+        width: 17px;
+        height: 17px;
+        border-radius: 50%;
+        border: 2px solid rgb(155, 155, 155);
+        margin-right: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        transition: box-shadow 0.2s ease;
+    }
+
+    .custom-radio:checked+.radio-icon {
+        border: 3.5px solid white;
+        background-color: #282829;
+        outline: 2px solid #282829;
+    }
+
+    .hover:hover .radio-icon {
+        border: 3px solid white;
+        background-color: #e2dad0;
+    }
+
+    .custom-radio:checked~span {
+        color: white;
+    }
+
+    // checkbox-icon
+    .checkbox-icon {
+        width: 17px;
+        height: 17px;
+        border: 2px solid rgb(155, 155, 155);
+        border-radius: 3px;
+        margin-right: 10px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 14px;
+        color: white;
+        background-color: #e2dad0;
+        transition: box-shadow 0.2s ease;
+
+        background-size: 85%;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+
+    .custom-checkbox:checked+.checkbox-icon {
+        background-color: #282829;
+        border-color: #282829;
+        background-image: url('images/check.svg');
+
+    }
+
+    .custom-checkbox:checked~span {
+        color: white;
+    }
+
+    &.disabled-radio {
+        pointer-events: none;
+    }
+
+    // radio no hover
+    &.no-hover {
+        text-align: center;
+        height: 100%;
+
+        .SingleAnswer {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+
+            span:first-of-type {
+                color: #000000;
+                padding: 10px 4%;
+                font-size: 18px;
+                width: 100%;
+
+                @media (max-width: 480px) {
+                    font-size: 14.4px;
+                }
+            }
+
+            .radio-icon {
+                margin-right: 0;
+            }
+        }
+    }
+
+    //hover
+    &.hover {
+        list-style: none;
+        padding: 13px 20px 13px 10px;
+        background-color: #e2dad0;
+        border-color: #e2dad0;
+        color: #000000;
+        margin: 0 auto 8px auto;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        position: relative;
+        transition: background-color 0.2s ease;
+
+        &.checked {
+            background-color: #282829;
+
+            &:hover {
+                background-color: #e2dad0;
+            }
+        }
+
+        .MultipleAnswer {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            width: 100%;
+            height: 100%;
+
+            .custom-checkbox,
+            .custom-radio {
+                display: none;
+            }
+        }
+    }
+
+
+}
+
+textarea {
+    font-family: Poppins, Arial, sans-serif;
+    font-size: 18px;
+    border: 2px solid rgb(155, 155, 155);
+    background-color: rgba(0, 0, 0, 0.06);
+    max-width: 100%;
+    min-height: 48px;
+    color: rgb(117, 117, 117);
+    border-radius: 0px;
+    padding: 10px;
+    margin: 2px 0;
+    height: 8em;
+    width: 100%;
+    overflow-x: hidden;
+
+    &:focus {
+        border-color: #282829;
+        outline: none;
+    }
+}
+
+
+
+.QuestionBody {
+    .EndOfSurvey {
+        color: #000000;
+        background-color: revert;
+        padding: 60px 40px 100px 40px;
+        text-align: center;
+        font-size: 16px;
+    }
+}
+
+
+.Buttons {
+    margin: 0px auto;
+    font-weight: 500;
+    padding: 20px 0 0 0;
+    position: relative;
+    text-align: right;
+
+    @media (max-width: 770px) {
+        margin: 10px auto 0;
+        padding: 10px;
+    }
+
+    .PrevButton,
+    .NextButton {
+        border: none;
+        border-radius: 3px;
+        font-size: 18px;
+        font-weight: 500;
+        background: rgb(226, 218, 208);
+        color: rgb(0, 0, 0);
+        padding: 8px 20px;
+        margin: 2px;
+        cursor: pointer;
+        text-decoration: none;
+        text-align: center;
+        transition: background 0.3s;
+
+        @media (max-width: 480px) {
+            font-size: 14.4px;
+
+        }
+
+        &:hover {
+            background: rgb(204, 189, 172);
+        }
+
+        &:active {
+            background: rgba(204, 189, 172, 0.2);
+        }
+
+
+    }
+
+    .PrevButton {
+        float: left;
+    }
+
+    // để tắt khả năng next or prev question khi đã nhấn vào một thuộc tính đang chuyển sang question tiếp theo
+    .disabled {
+        pointer-events: none;
+        opacity: 0.5;
+    }
+}

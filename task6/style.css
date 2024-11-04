@@ -1,0 +1,374 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: 'AktivGroteskRegular', sans-serif !important;
+}
+@media screen and (min-width: 481px) {
+  form {
+    padding: 0 16px;
+  }
+}
+.Skin {
+  min-height: 100%;
+  margin: 0 auto;
+  height: auto;
+}
+.Skin .Container {
+  width: 100%;
+  padding-top: 80px;
+}
+@media (max-width: 480px) {
+  .Skin .Container {
+    padding-top: 30px;
+  }
+}
+@media (min-width: 770px) {
+  .Skin {
+    max-width: 95%;
+    width: 770px;
+  }
+}
+@media (min-width: 980px) {
+  .Skin {
+    display: table;
+    min-width: 770px;
+  }
+}
+.Skin input {
+  font-family: Poppins, Arial, sans-serif;
+  font-size: 18px;
+  color: #757575;
+}
+.LogoContainer {
+  padding: 15px 0 0 0;
+}
+.LogoContainer .Logo {
+  padding: 12px;
+  background-color: #282829;
+  margin-bottom: 20px;
+  background-position: center center;
+  text-align: center;
+}
+.LogoContainer .Logo img {
+  vertical-align: middle;
+  max-width: 100%;
+  max-height: 37px;
+}
+@media (max-width: 480px) {
+  .LogoContainer {
+    margin-bottom: 0;
+  }
+  .LogoContainer img {
+    max-width: 50%;
+    max-height: 24px;
+  }
+}
+@media only screen and (max-width: 770px) {
+  .LogoContainer {
+    padding: 0px 15px;
+  }
+}
+#HeaderContainer {
+  margin: 0 auto;
+}
+#HeaderContainer #Header {
+  padding: 0;
+}
+@media only screen and (max-width: 767px) {
+  .Skin #HeaderContainer {
+    padding: 15px 20px 0px;
+  }
+}
+.SkinContent {
+  margin: 0 auto;
+}
+.SkinContent .ValidationError {
+  display: none;
+  background: url(images/error.svg) no-repeat left top;
+  background-size: 20px 20px;
+  color: #d13a34;
+  margin: 0 auto;
+  padding: 5px 0 10px 0;
+  text-indent: 25px;
+  font-size: 14px;
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+@media (max-width: 770px) {
+  .SkinContent .ValidationError {
+    margin-left: 20px;
+    margin-bottom: 0;
+  }
+}
+.Questions .Question {
+  display: none;
+  font-size: 100%;
+  white-space: normal;
+}
+.Questions .Question.active {
+  display: block;
+}
+.Questions .Question .QuestionText {
+  color: #757575;
+  font-size: 24px;
+  padding: 0px 0px 24px;
+  width: 100%;
+  font-weight: 400;
+  line-height: 1.5em;
+}
+@media (max-width: 770px) {
+  .Questions .Question .QuestionText {
+    padding: 20px;
+  }
+}
+.Questions .Question .QuestionText a {
+  color: #282829;
+}
+@media (max-width: 480px) {
+  .Questions .Question .QuestionText {
+    font-size: 19.2px;
+  }
+}
+.Questions .Question .QuestionBody {
+  padding-bottom: 20px;
+  padding-left: 0;
+  padding-right: 0;
+  margin: 0 auto;
+  color: #757575;
+  font-weight: 400;
+}
+@media (max-width: 480px) {
+  .Questions .Question .QuestionBody {
+    font-size: 14.4px;
+  }
+}
+@media (max-width: 770px) {
+  .Questions .Question .QuestionBody.txarea {
+    padding-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+fieldset {
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+.ChoiceStructure {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+.ChoiceStructure .CollumnLabel {
+  color: #757575;
+  font-size: 18px;
+  font-weight: 400;
+  width: 50%;
+}
+.ChoiceStructure .First {
+  text-align: left;
+}
+.ChoiceStructure .Last {
+  text-align: right;
+}
+@media (max-width: 480px) {
+  .ChoiceStructure .First,
+  .ChoiceStructure .Last {
+    font-size: 14px;
+  }
+}
+@media only screen and (min-width: 481px) {
+  .ChoiceStructure {
+    border-spacing: 10px;
+  }
+}
+.Selection {
+  cursor: pointer;
+}
+.Selection .custom-radio {
+  display: none;
+}
+.Selection .radio-icon {
+  width: 17px;
+  height: 17px;
+  border-radius: 50%;
+  border: 2px solid #9b9b9b;
+  margin-right: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: box-shadow 0.2s ease;
+}
+.Selection .custom-radio:checked + .radio-icon {
+  border: 3.5px solid white;
+  background-color: #282829;
+  outline: 2px solid #282829;
+}
+.Selection .hover:hover .radio-icon {
+  border: 3px solid white;
+  background-color: #e2dad0;
+}
+.Selection .custom-radio:checked ~ span {
+  color: white;
+}
+.Selection .checkbox-icon {
+  width: 17px;
+  height: 17px;
+  border: 2px solid #9b9b9b;
+  border-radius: 3px;
+  margin-right: 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  color: white;
+  background-color: #e2dad0;
+  transition: box-shadow 0.2s ease;
+  background-size: 85%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.Selection .custom-checkbox:checked + .checkbox-icon {
+  background-color: #282829;
+  border-color: #282829;
+  background-image: url('images/check.svg');
+}
+.Selection .custom-checkbox:checked ~ span {
+  color: white;
+}
+.Selection.disabled-radio {
+  pointer-events: none;
+}
+.Selection.no-hover {
+  text-align: center;
+  height: 100%;
+}
+.Selection.no-hover .SingleAnswer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.Selection.no-hover .SingleAnswer span:first-of-type {
+  color: #000000;
+  padding: 10px 4%;
+  font-size: 18px;
+  width: 100%;
+}
+@media (max-width: 480px) {
+  .Selection.no-hover .SingleAnswer span:first-of-type {
+    font-size: 14.4px;
+  }
+}
+.Selection.no-hover .SingleAnswer .radio-icon {
+  margin-right: 0;
+}
+.Selection.hover {
+  list-style: none;
+  padding: 13px 20px 13px 10px;
+  background-color: #e2dad0;
+  border-color: #e2dad0;
+  color: #000000;
+  margin: 0 auto 8px auto;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  position: relative;
+  transition: background-color 0.2s ease;
+}
+.Selection.hover.checked {
+  background-color: #282829;
+}
+.Selection.hover.checked:hover {
+  background-color: #e2dad0;
+}
+.Selection.hover .MultipleAnswer {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+}
+.Selection.hover .MultipleAnswer .custom-checkbox,
+.Selection.hover .MultipleAnswer .custom-radio {
+  display: none;
+}
+textarea {
+  font-family: Poppins, Arial, sans-serif;
+  font-size: 18px;
+  border: 2px solid #9b9b9b;
+  background-color: rgba(0, 0, 0, 0.06);
+  max-width: 100%;
+  min-height: 48px;
+  color: #757575;
+  border-radius: 0px;
+  padding: 10px;
+  margin: 2px 0;
+  height: 8em;
+  width: 100%;
+  overflow-x: hidden;
+}
+textarea:focus {
+  border-color: #282829;
+  outline: none;
+}
+.QuestionBody .EndOfSurvey {
+  color: #000000;
+  background-color: revert;
+  padding: 60px 40px 100px 40px;
+  text-align: center;
+  font-size: 16px;
+}
+.Buttons {
+  margin: 0px auto;
+  font-weight: 500;
+  padding: 20px 0 0 0;
+  position: relative;
+  text-align: right;
+}
+@media (max-width: 770px) {
+  .Buttons {
+    margin: 10px auto 0;
+    padding: 10px;
+  }
+}
+.Buttons .PrevButton,
+.Buttons .NextButton {
+  border: none;
+  border-radius: 3px;
+  font-size: 18px;
+  font-weight: 500;
+  background: #e2dad0;
+  color: #000000;
+  padding: 8px 20px;
+  margin: 2px;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+  transition: background 0.3s;
+}
+@media (max-width: 480px) {
+  .Buttons .PrevButton,
+  .Buttons .NextButton {
+    font-size: 14.4px;
+  }
+}
+.Buttons .PrevButton:hover,
+.Buttons .NextButton:hover {
+  background: #ccbdac;
+}
+.Buttons .PrevButton:active,
+.Buttons .NextButton:active {
+  background: rgba(204, 189, 172, 0.2);
+}
+.Buttons .PrevButton {
+  float: left;
+}
+.Buttons .disabled {
+  pointer-events: none;
+  opacity: 0.5;
+}
